@@ -41,6 +41,7 @@
         app:layout_constraintHorizontal_bias="0.168"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/btn_star" />
+        app:imageUrl="@{viewModel.imageUrl}"
+        app:error="@{@android:drawable/btn_star}" />
 </android.support.constraint.ConstraintLayout>
 </layout>

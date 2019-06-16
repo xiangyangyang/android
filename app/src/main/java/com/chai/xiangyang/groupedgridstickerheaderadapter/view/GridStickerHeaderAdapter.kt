@@ -1,15 +1,13 @@
-package com.chai.xiangyang.groupedgridstickerheaderadapter
+package com.chai.xiangyang.groupedgridstickerheaderadapter.view
 
 import android.content.Context
 import android.databinding.DataBindingUtil
 import android.databinding.ViewDataBinding
-import android.os.Parcel
-import android.os.Parcelable
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import com.chai.xiangyang.groupedgridstickerheaderadapter.R
 import com.chai.xiangyang.groupedgridstickerheaderadapter.databinding.BottomViewBinding
 import com.chai.xiangyang.groupedgridstickerheaderadapter.databinding.GroupItemViewBinding
 import com.chai.xiangyang.groupedgridstickerheaderadapter.databinding.HeaderItemViewBinding

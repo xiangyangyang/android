@@ -1,4 +1,4 @@
-package com.chai.xiangyang.groupedgridstickerheaderadapter;
+package com.chai.xiangyang.groupedgridstickerheaderadapter.view;
 
 import android.graphics.Canvas;
 import android.support.v7.widget.RecyclerView;

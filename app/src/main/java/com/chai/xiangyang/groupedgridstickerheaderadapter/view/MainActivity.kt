@@ -1,9 +1,10 @@
-package com.chai.xiangyang.groupedgridstickerheaderadapter
+package com.chai.xiangyang.groupedgridstickerheaderadapter.view
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
+import com.chai.xiangyang.groupedgridstickerheaderadapter.R
 
 class MainActivity : AppCompatActivity() {
 
