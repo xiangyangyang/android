@@ -5,7 +5,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.chai.xiangyang.groupedgridstickerheaderadapter.viewmodel.TopViewModel"></variable>
+            type="com.chai.xiangyang.gridstickerheaderlist.viewmodel.TopViewModel"></variable>
     </data>
     <LinearLayout
         android:layout_width="wrap_content"

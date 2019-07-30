@@ -1,10 +1,10 @@
-package com.chai.xiangyang.groupedgridstickerheaderadapter.view
+package com.chai.xiangyang.gridstickerheaderlist.view
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
-import com.chai.xiangyang.groupedgridstickerheaderadapter.R
+import com.chai.xiangyang.gridstickerheaderlist.R
 
 class MainActivity : AppCompatActivity() {
 
@@ -40,7 +40,5 @@ class MainActivity : AppCompatActivity() {
 
 
         }
-
-        recyclerView.addItemDecoration(HeaderItemDecoration(recyclerView, viewAdapter))
     }
 }

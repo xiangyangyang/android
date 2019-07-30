@@ -1,7 +1,7 @@
-package com.chai.xiangyang.groupedgridstickerheaderadapter
+package com.chai.xiangyang.gridstickerheaderlist
 
 import android.app.Application
-import com.chai.xiangyang.groupedgridstickerheaderadapter.DI.appModule
+import com.chai.xiangyang.gridstickerheaderlist.DI.appModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin

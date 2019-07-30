@@ -1,4 +1,4 @@
-package com.chai.xiangyang.groupedgridstickerheaderadapter;
+package com.chai.xiangyang.gridstickerheaderlist;
 
 import org.junit.Test;
 

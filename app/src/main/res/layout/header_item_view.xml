@@ -5,7 +5,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.chai.xiangyang.groupedgridstickerheaderadapter.viewmodel.HeaderItemViewModel"></variable>
+            type="com.chai.xiangyang.gridstickerheaderlist.viewmodel.HeaderItemViewModel"></variable>
     </data>
 <android.support.constraint.ConstraintLayout
     xmlns:tools="http://schemas.android.com/tools"

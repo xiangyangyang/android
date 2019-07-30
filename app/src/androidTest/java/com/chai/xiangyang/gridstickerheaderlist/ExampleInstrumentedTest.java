@@ -1,4 +1,4 @@
-package com.chai.xiangyang.groupedgridstickerheaderadapter;
+package com.chai.xiangyang.gridstickerheaderlist;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

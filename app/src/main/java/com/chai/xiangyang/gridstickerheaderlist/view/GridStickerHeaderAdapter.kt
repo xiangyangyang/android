@@ -1,54 +1,50 @@
-package com.chai.xiangyang.groupedgridstickerheaderadapter.view
+package com.chai.xiangyang.gridstickerheaderlist.view
 
 import android.content.Context
 import android.databinding.DataBindingUtil
 import android.databinding.ViewDataBinding
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import com.chai.xiangyang.groupedgridstickerheaderadapter.R
-import com.chai.xiangyang.groupedgridstickerheaderadapter.databinding.BottomViewBinding
-import com.chai.xiangyang.groupedgridstickerheaderadapter.databinding.GroupItemViewBinding
-import com.chai.xiangyang.groupedgridstickerheaderadapter.databinding.HeaderItemViewBinding
-import com.chai.xiangyang.groupedgridstickerheaderadapter.databinding.TopViewBinding
-import com.chai.xiangyang.groupedgridstickerheaderadapter.viewmodel.BottomViewModel
-import com.chai.xiangyang.groupedgridstickerheaderadapter.viewmodel.GroupItemViewModel
-import com.chai.xiangyang.groupedgridstickerheaderadapter.viewmodel.HeaderItemViewModel
-import com.chai.xiangyang.groupedgridstickerheaderadapter.viewmodel.TopViewModel
+import com.chai.xiangyang.gridstickerheaderlist.R
+import com.chai.xiangyang.gridstickerheaderlist.databinding.BottomViewBinding
+import com.chai.xiangyang.gridstickerheaderlist.databinding.GroupItemViewBinding
+import com.chai.xiangyang.gridstickerheaderlist.databinding.HeaderItemViewBinding
+import com.chai.xiangyang.gridstickerheaderlist.databinding.TopViewBinding
+import com.chai.xiangyang.gridstickerheaderlist.viewmodel.BottomViewModel
+import com.chai.xiangyang.gridstickerheaderlist.viewmodel.GroupItemViewModel
+import com.chai.xiangyang.gridstickerheaderlist.viewmodel.HeaderItemViewModel
+import com.chai.xiangyang.gridstickerheaderlist.viewmodel.TopViewModel
 import java.util.ArrayList
 
-class GridStickerHeaderAdapter(private val mContext:Context):RecyclerView.Adapter<GridStickerHeaderAdapter.ItemViewHolder>(), HeaderItemDecoration.StickyHeaderInterface {
-    override fun getHeaderPositionForItem(itemPosition: Int): Int {
-        var headerPosition = 0
-        var item = itemPosition
-        do {
-            if (this.isHeader(item)) {
-                headerPosition = item
-                break
-            }
-            item -= 1
-        } while (item >= 0)
-        return headerPosition
-    }
+class GridStickerHeaderAdapter(private val mContext:Context):RecyclerView.Adapter<GridStickerHeaderAdapter.ItemViewHolder>() {
+//    override fun getHeaderPositionForItem(itemPosition: Int): Int {
+//        var headerPosition = 0
+//        var item = itemPosition
+//        do {
+//            if (this.isHeader(item)) {
+//                headerPosition = item
+//                break
+//            }
+//            item -= 1
+//        } while (item >= 0)
+//        return headerPosition
+//    }
+//
+//    override fun getHeaderLayout(headerPosition: Int): Int {
+//        return R.layout.header_item_view
+//    }
+//
+//    override fun bindHeaderData(header: View?, headerPosition: Int) {
+//        if (header != null) {
+//        val headerItemViewBinding = DataBindingUtil.getBinding<HeaderItemViewBinding>(header)
+//            if(headerItemViewBinding!=null) {
+//                headerItemViewBinding.viewModel = HeaderItemViewModel("header$headerPosition")
+//                headerItemViewBinding.executePendingBindings()
+//            }
+//    }
+//}
 
-    override fun getHeaderLayout(headerPosition: Int): Int {
-        return R.layout.header_item_view
-    }
-
-    override fun bindHeaderData(header: View?, headerPosition: Int) {
-        if (header != null) {
-        val headerItemViewBinding = DataBindingUtil.getBinding<HeaderItemViewBinding>(header)
-            if(headerItemViewBinding!=null) {
-                headerItemViewBinding.viewModel = HeaderItemViewModel("header$headerPosition")
-                headerItemViewBinding.executePendingBindings()
-            }
-    }
-}
-
-    override fun isHeader(itemPosition: Int): Boolean {
-        return isHeaderItem(itemPosition)
-    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         return when (viewType) {
