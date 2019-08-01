@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit
 
 open class ApiClientManager {
     companion object {
-        private const val ENDPOINT = "https://drive.google.com/open?id=11TEXC3IUgrwhDf7IHHhLDnQhwpJv4qXH"
+        private const val ENDPOINT = "http://note.youdao.com/"
         private val TAG = ApiClientManager::class.simpleName
 
         val apiClient: ApiClient

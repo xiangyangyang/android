@@ -5,40 +5,43 @@ import android.os.Bundle
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
 import com.chai.xiangyang.gridstickerheaderlist.R
+import com.chai.xiangyang.gridstickerheaderlist.data.entity.BookEntity
+import com.chai.xiangyang.gridstickerheaderlist.data.repository.BookRepository
+import com.chai.xiangyang.gridstickerheaderlist.view.handler.ViewResultHandler
+import com.chai.xiangyang.gridstickerheaderlist.viewmodel.MainViewModel
+import org.koin.android.ext.android.get
+import org.koin.android.ext.android.inject
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() ,ViewResultHandler{
+
+
+    private val mainViewModel:MainViewModel by inject()
+    private lateinit var recyclerView:RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        mainViewModel.getBookList(this)
+        recyclerView=findViewById<RecyclerView>(R.id.my_recycler_view)
+        recyclerView.setHasFixedSize(true)
 
-        val viewAdapter = GridStickerHeaderAdapter(this)
+    }
+
+    override fun resultCompleted(list: List<BookEntity>) {
+        val viewAdapter = GridStickerHeaderAdapter(this,list)
         val viewManager = GridLayoutManager(this,2).apply {
             spanSizeLookup= object:GridLayoutManager.SpanSizeLookup(){
                 override fun getSpanSize(position: Int): Int {
-                       if(viewAdapter.isHeaderItem(position)||viewAdapter.isBottomItem(position)||viewAdapter.isTopItem(position)){
-                           return 2;
+                    if(viewAdapter.isHeaderItem(position)||viewAdapter.isBottomItem(position)||viewAdapter.isTopItem(position)){
+                        return 2;
                     }else{
-                           return 1;
-                       }
+                        return 1;
+                    }
 
                 }
             }
         }
 
-        val recyclerView = findViewById<RecyclerView>(R.id.my_recycler_view).apply {
-            // use this setting to improve performance if you know that changes
-            // in content do not change the layout size of the RecyclerView
-            setHasFixedSize(true)
-
-
-            // use a linear layout manager
-            layoutManager = viewManager
-
-            // specify an viewAdapter (see also next example)
-            adapter = viewAdapter
-
-
-        }
+       recyclerView.layoutManager=viewManager
     }
 }

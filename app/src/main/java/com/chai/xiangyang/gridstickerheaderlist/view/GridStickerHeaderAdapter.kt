@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.chai.xiangyang.gridstickerheaderlist.R
+import com.chai.xiangyang.gridstickerheaderlist.data.entity.BookEntity
 import com.chai.xiangyang.gridstickerheaderlist.databinding.BottomViewBinding
 import com.chai.xiangyang.gridstickerheaderlist.databinding.GroupItemViewBinding
 import com.chai.xiangyang.gridstickerheaderlist.databinding.HeaderItemViewBinding
@@ -17,7 +18,7 @@ import com.chai.xiangyang.gridstickerheaderlist.viewmodel.HeaderItemViewModel
 import com.chai.xiangyang.gridstickerheaderlist.viewmodel.TopViewModel
 import java.util.ArrayList
 
-class GridStickerHeaderAdapter(private val mContext:Context):RecyclerView.Adapter<GridStickerHeaderAdapter.ItemViewHolder>() {
+class GridStickerHeaderAdapter(private val mContext:Context,private val books:List<BookEntity>):RecyclerView.Adapter<GridStickerHeaderAdapter.ItemViewHolder>() {
 //    override fun getHeaderPositionForItem(itemPosition: Int): Int {
 //        var headerPosition = 0
 //        var item = itemPosition

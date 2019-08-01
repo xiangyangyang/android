@@ -6,7 +6,7 @@ import com.chai.xiangyang.gridstickerheaderlist.data.entity.BookEntity
 import rx.Observable
 
 
-class BookRepository {
+class BookRepository() {
     private val apiClient: ApiClient= ApiClientManager.apiClient
 
     fun getBookList(): Observable<List<BookEntity>> {
