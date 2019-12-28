@@ -1,4 +1,4 @@
-package com.chai.xiangyang.gridstickerheaderlist.viewmodel
+package com.chai.xiangyang.stickerheader.viewmodel
 
 import androidx.databinding.ObservableField
 

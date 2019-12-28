@@ -1,4 +1,4 @@
-package com.chai.xiangyang.gridstickerheaderlist.api
+package com.chai.xiangyang.stickerheader.api
 
 import com.google.gson.Gson
 import okhttp3.OkHttpClient

@@ -1,4 +1,4 @@
-package com.chai.xiangyang.gridstickerheaderlist.view.utils
+package com.chai.xiangyang.stickerheader.view.utils
 
 import android.media.MediaPlayer
 

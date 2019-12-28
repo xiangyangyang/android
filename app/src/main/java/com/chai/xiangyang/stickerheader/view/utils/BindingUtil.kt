@@ -1,4 +1,4 @@
-package com.chai.xiangyang.gridstickerheaderlist.view.utils
+package com.chai.xiangyang.stickerheader.view.utils
 
 import android.graphics.drawable.Drawable
 import android.text.InputType
@@ -9,7 +9,6 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
-import com.chai.xiangyang.gridstickerheaderlist.R
 import com.squareup.picasso.Picasso
 import java.text.NumberFormat
 

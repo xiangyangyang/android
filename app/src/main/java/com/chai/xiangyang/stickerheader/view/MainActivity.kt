@@ -1,14 +1,12 @@
-package com.chai.xiangyang.gridstickerheaderlist.view
+package com.chai.xiangyang.stickerheader.view
 
 import android.app.AlertDialog
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.chai.xiangyang.gridstickerheaderlist.R
-import com.chai.xiangyang.gridstickerheaderlist.data.entity.BookEntity
-import com.chai.xiangyang.gridstickerheaderlist.view.handler.ViewResultHandler
-import com.chai.xiangyang.gridstickerheaderlist.viewmodel.MainViewModel
+import com.chai.xiangyang.stickerheader.R
+import com.chai.xiangyang.stickerheader.viewmodel.MainViewModel
 import org.koin.android.ext.android.inject
 
 class MainActivity : AppCompatActivity(){

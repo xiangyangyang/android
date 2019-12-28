@@ -1,4 +1,4 @@
-package com.chai.xiangyang.gridstickerheaderlist.view
+package com.chai.xiangyang.stickerheader.view
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,16 +6,16 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
-import com.chai.xiangyang.gridstickerheaderlist.ItemModel
-import com.chai.xiangyang.gridstickerheaderlist.R
-import com.chai.xiangyang.gridstickerheaderlist.databinding.BottomViewBinding
-import com.chai.xiangyang.gridstickerheaderlist.databinding.GroupItemViewBinding
-import com.chai.xiangyang.gridstickerheaderlist.databinding.HeaderItemViewBinding
-import com.chai.xiangyang.gridstickerheaderlist.databinding.TopViewBinding
-import com.chai.xiangyang.gridstickerheaderlist.viewmodel.BottomViewModel
-import com.chai.xiangyang.gridstickerheaderlist.viewmodel.GroupItemViewModel
-import com.chai.xiangyang.gridstickerheaderlist.viewmodel.HeaderItemViewModel
-import com.chai.xiangyang.gridstickerheaderlist.viewmodel.TopViewModel
+import com.chai.xiangyang.stickerheader.ItemModel
+import com.chai.xiangyang.stickerheader.R
+import com.chai.xiangyang.stickerheader.databinding.BottomViewBinding
+import com.chai.xiangyang.stickerheader.databinding.GroupItemViewBinding
+import com.chai.xiangyang.stickerheader.databinding.HeaderItemViewBinding
+import com.chai.xiangyang.stickerheader.databinding.TopViewBinding
+import com.chai.xiangyang.stickerheader.viewmodel.BottomViewModel
+import com.chai.xiangyang.stickerheader.viewmodel.GroupItemViewModel
+import com.chai.xiangyang.stickerheader.viewmodel.HeaderItemViewModel
+import com.chai.xiangyang.stickerheader.viewmodel.TopViewModel
 import java.util.*
 
 class GridStickerHeaderAdapter(private val mContext: Context, private val books: List<Int>) : RecyclerView.Adapter<GridStickerHeaderAdapter.ItemViewHolder>() {

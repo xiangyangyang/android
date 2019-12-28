@@ -1,6 +1,6 @@
-package com.chai.xiangyang.gridstickerheaderlist.api
+package com.chai.xiangyang.stickerheader.api
 
-import com.chai.xiangyang.gridstickerheaderlist.data.entity.BookEntity
+import com.chai.xiangyang.stickerheader.data.entity.BookEntity
 import retrofit2.http.GET
 import rx.Observable
 

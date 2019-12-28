@@ -1,13 +1,7 @@
-package com.chai.xiangyang.gridstickerheaderlist.viewmodel
+package com.chai.xiangyang.stickerheader.viewmodel
 
-import android.util.Log
-import com.chai.xiangyang.gridstickerheaderlist.R
-import com.chai.xiangyang.gridstickerheaderlist.data.entity.BookEntity
-import com.chai.xiangyang.gridstickerheaderlist.data.repository.BookRepository
-import com.chai.xiangyang.gridstickerheaderlist.view.handler.ViewResultHandler
-import rx.Subscriber
-import rx.android.schedulers.AndroidSchedulers
-import rx.schedulers.Schedulers
+import com.chai.xiangyang.stickerheader.R
+import com.chai.xiangyang.stickerheader.data.repository.BookRepository
 
 
 class MainViewModel (val bookRepository: BookRepository){

@@ -1,4 +1,4 @@
-package com.chai.xiangyang.gridstickerheaderlist
+package com.chai.xiangyang.stickerheader
 
 data class ItemModel(var imageId: Int? = null,
                      var groupTitle: String? = null,

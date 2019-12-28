@@ -1,4 +1,4 @@
-package com.chai.xiangyang.gridstickerheaderlist.data.entity
+package com.chai.xiangyang.stickerheader.data.entity
 
 data class BookEntity(var bookName:String,
                       var bookType:Int,
