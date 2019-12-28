@@ -2,27 +2,41 @@ package com.chai.xiangyang.gridstickerheaderlist.view
 
 import android.app.AlertDialog
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.chai.xiangyang.gridstickerheaderlist.R
 import com.chai.xiangyang.gridstickerheaderlist.data.entity.BookEntity
 import com.chai.xiangyang.gridstickerheaderlist.view.handler.ViewResultHandler
 import com.chai.xiangyang.gridstickerheaderlist.viewmodel.MainViewModel
 import org.koin.android.ext.android.inject
 
-class MainActivity : AppCompatActivity() ,ViewResultHandler{
-
+class MainActivity : AppCompatActivity(){
 
     private val mainViewModel:MainViewModel by inject()
-    private lateinit var recyclerView:RecyclerView
+    private lateinit var recyclerView: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        mainViewModel.getBookList(this)
-        recyclerView=findViewById<RecyclerView>(R.id.my_recycler_view)
+        recyclerView=findViewById<RecyclerView>(R.id.book_recycler_view)
         recyclerView.setHasFixedSize(true)
+        val viewAdapter = GridStickerHeaderAdapter(this,mainViewModel.getBookList())
+        val viewManager = GridLayoutManager(this,2).apply {
+            spanSizeLookup= object:GridLayoutManager.SpanSizeLookup(){
+                override fun getSpanSize(position: Int): Int {
+                    if(viewAdapter.isHeaderItem(position)||viewAdapter.isBottomItem(position)||viewAdapter.isTopItem(position)){
+                        return 2;
+                    }else{
+                        return 1;
+                    }
+
+                }
+            }
+        }
+
+        recyclerView.layoutManager=viewManager
+        recyclerView.adapter = viewAdapter
 
 //        navController = findNavController(R.id.nav_host_fragment)
 //        setDrawer()
@@ -155,24 +169,6 @@ class MainActivity : AppCompatActivity() ,ViewResultHandler{
 //        drawerMenu.header?.let {
 //            MenuNavHeaderBinding.bind(it).viewmodel = viewModel
 //        }
-
-    override fun resultCompleted(list: List<BookEntity>) {
-        val viewAdapter = GridStickerHeaderAdapter(this,list)
-        val viewManager = GridLayoutManager(this,2).apply {
-            spanSizeLookup= object:GridLayoutManager.SpanSizeLookup(){
-                override fun getSpanSize(position: Int): Int {
-                    if(viewAdapter.isHeaderItem(position)||viewAdapter.isBottomItem(position)||viewAdapter.isTopItem(position)){
-                        return 2;
-                    }else{
-                        return 1;
-                    }
-
-                }
-            }
-        }
-
-       recyclerView.layoutManager=viewManager
-    }
 
     private fun logout() {
         AlertDialog.Builder(this)

@@ -5,9 +5,9 @@
     <data>
         <variable
             name="viewModel"
-            type="com.chai.xiangyang.gridstickerheaderlist.viewmodel.GroupItemViewModel"></variable>
+            type="com.chai.xiangyang.gridstickerheaderlist.viewmodel.GroupItemViewModel"/>
     </data>
-<android.support.constraint.ConstraintLayout
+<androidx.constraintlayout.widget.ConstraintLayout
 
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -30,18 +30,17 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:scaleType="fitCenter"
+        android:scaleType="centerCrop"
         android:onClick="@{() -> viewModel.buttonClicked()}"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.168"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:imageUrl="@{viewModel.imageUrl}"
-        app:error="@{@android:drawable/btn_star}" />
-</android.support.constraint.ConstraintLayout>
+        app:srcId="@{viewModel.imageId}"
+    />
+</androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

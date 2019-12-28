@@ -7,8 +7,9 @@
             name="viewModel"
             type="com.chai.xiangyang.gridstickerheaderlist.viewmodel.BottomViewModel"></variable>
     </data>
-<android.support.constraint.ConstraintLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/md_green_100"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -39,5 +40,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bottom_text"
         app:srcCompat="@android:drawable/star_big_on" />
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

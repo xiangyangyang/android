@@ -4,13 +4,7 @@ ext {
     koin_version = '2.0.1'
 
     // Android Sdk and tools
-    minSdkVersion = 21
-    targetSdkVersion = 28
-    compileSdkVersion = 28
-    androidGradlePlugin = "3.4.1"
-    buildToolsVersion = '28.0.3'
     supportLibraryVersion = '27.1.0'
-
     androidArchitectureVersion = "1.1.1"
     // Framework
     okhttp_version = '3.8.1'
