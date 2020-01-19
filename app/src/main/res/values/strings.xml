@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">StickerHeaderList</string>
+    <string name="title_activity_sticker">StickerActivity</string>
 </resources>

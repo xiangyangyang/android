@@ -2,6 +2,7 @@ package com.chai.xiangyang.stickerheader.view
 
 import android.content.Context
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
@@ -18,8 +19,9 @@ import com.chai.xiangyang.stickerheader.viewmodel.HeaderItemViewModel
 import com.chai.xiangyang.stickerheader.viewmodel.TopViewModel
 import java.util.*
 
-class GridStickerHeaderAdapter(private val mContext: Context, private val books: List<Int>) : RecyclerView.Adapter<GridStickerHeaderAdapter.ItemViewHolder>() {
+class GridStickerHeaderAdapter(private val mContext: Context, private val books: List<Int>) : RecyclerView.Adapter<GridStickerHeaderAdapter.ItemViewHolder>(), StickerHeaderRecyclerView.OnHeaderUpdateListener {
 
+    private lateinit var headerview: View
     private lateinit var itemList: List<ItemModel>
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         return when (viewType) {
@@ -33,7 +35,7 @@ class GridStickerHeaderAdapter(private val mContext: Context, private val books:
 
     override fun getItemViewType(position: Int): Int {
         return when {
-            position == 0 -> TOP
+            //position == 0 -> TOP
             isBottomItem(position) -> BOTTOM
             isHeaderItem(position) -> ITEM_HEADER
             else -> ITEM_ITEM
@@ -57,6 +59,7 @@ class GridStickerHeaderAdapter(private val mContext: Context, private val books:
             ITEM_HEADER -> {
                 val headerItemViewBinding = holder.viewDataBinding as HeaderItemViewBinding
                 headerItemViewBinding.viewModel = HeaderItemViewModel(itemModel.groupTitle!!)
+                headerview = headerItemViewBinding.root
             }
             BOTTOM -> {
                 val bottomViewBinding = holder.viewDataBinding as BottomViewBinding
@@ -72,16 +75,24 @@ class GridStickerHeaderAdapter(private val mContext: Context, private val books:
 
     class ItemViewHolder(var viewDataBinding: ViewDataBinding) : RecyclerView.ViewHolder(viewDataBinding.root)
 
-    fun isHeaderItem(position: Int): Boolean {
+    override fun isHeaderItem(position: Int): Boolean {
         return itemList[position].isHeader
     }
 
-    fun isTopItem(position: Int): Boolean {
-        return position == 0
-    }
+//    fun isTopItem(position: Int): Boolean {
+//        return position == 0
+//    }
 
     fun isBottomItem(position: Int): Boolean {
         return position == itemCount - 1
+    }
+
+    override fun getStickyHeader():View {
+       return LayoutInflater.from(mContext).inflate(R.layout.header_item_view, null)
+    }
+
+    override fun updateStickyHeader(headerItemPosition: Int) {
+
     }
 
     companion object {
@@ -94,7 +105,7 @@ class GridStickerHeaderAdapter(private val mContext: Context, private val books:
 
     private fun getItemDataSet(): List<ItemModel> {
         val itemList = ArrayList<ItemModel>()
-        itemList.add(ItemModel(null, "topSection", true))
+       // itemList.add(ItemModel(null, "topSection", true))
         itemList.add(ItemModel(null, "first group", true))
         for (i in 0..6) {
             itemList.add(ItemModel(books[i]))

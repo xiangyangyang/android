@@ -2,6 +2,7 @@ package com.chai.xiangyang.stickerheader.view
 
 import android.app.AlertDialog
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -12,18 +13,18 @@ import org.koin.android.ext.android.inject
 class MainActivity : AppCompatActivity(){
 
     private val mainViewModel:MainViewModel by inject()
-    private lateinit var recyclerView: RecyclerView
+    private lateinit var recyclerView: StickerHeaderRecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        recyclerView=findViewById<RecyclerView>(R.id.book_recycler_view)
+        recyclerView=findViewById<StickerHeaderRecyclerView>(R.id.book_recycler_view)
         recyclerView.setHasFixedSize(true)
         val viewAdapter = GridStickerHeaderAdapter(this,mainViewModel.getBookList())
         val viewManager = GridLayoutManager(this,2).apply {
             spanSizeLookup= object:GridLayoutManager.SpanSizeLookup(){
                 override fun getSpanSize(position: Int): Int {
-                    if(viewAdapter.isHeaderItem(position)||viewAdapter.isBottomItem(position)||viewAdapter.isTopItem(position)){
+                    if(viewAdapter.isHeaderItem(position)||viewAdapter.isBottomItem(position)){
                         return 2;
                     }else{
                         return 1;

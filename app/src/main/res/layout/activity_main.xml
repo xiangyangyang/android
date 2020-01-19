@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".view.MainActivity">
 
-   <androidx.recyclerview.widget.RecyclerView
+   <com.chai.xiangyang.stickerheader.view.StickerHeaderRecyclerView
        android:id="@+id/book_recycler_view"
        android:layout_width="match_parent"
        android:layout_height="match_parent"
