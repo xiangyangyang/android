@@ -3,6 +3,7 @@ package com.chai.xiangyang.stickerheader.view
 import android.content.Context
 import android.graphics.Canvas
 import android.util.AttributeSet
+import android.util.Log
 import android.view.View
 import android.widget.AbsListView
 import androidx.recyclerview.widget.RecyclerView
@@ -39,10 +40,11 @@ class StickerHeaderRecyclerView : RecyclerView, AbsListView.OnScrollListener {
 
     override fun onMeasure(widthSpec: Int, heightSpec: Int) {
         super.onMeasure(widthSpec, heightSpec)
-        // measure header's widthSpec and heightSpec
-        measureChild(headerView, widthSpec, heightSpec)
-        headerWidth = headerView?.measuredWidth ?: 0
-        headerHeight = headerView?.measuredHeight ?: 0
+        headerView?.let {
+            measureChild(headerView, widthSpec, heightSpec)
+            headerWidth = headerView?.measuredWidth ?: 0
+            headerHeight = headerView?.measuredHeight ?: 0
+        }
     }
 
     override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
@@ -62,6 +64,9 @@ class StickerHeaderRecyclerView : RecyclerView, AbsListView.OnScrollListener {
 
     override fun onScroll(view: AbsListView?, firstVisibleItem: Int, visibleItemCount: Int, totalItemCount: Int) {
 
+        Log.d("firstVisibleItem ----->", "$firstVisibleItem" )
+        Log.d("visibleItemCount ----->", "$visibleItemCount" )
+        Log.d("totalItemCount ----->", "$totalItemCount" )
         if (totalItemCount != 0 && headerView != null && headerUpdateListener != null) {
             var nextHeaderPosition = 0
             if (headerUpdateListener!!.isHeaderItem(firstVisibleItem + 1)) {
@@ -78,7 +83,13 @@ class StickerHeaderRecyclerView : RecyclerView, AbsListView.OnScrollListener {
         }
     }
 
+    override fun addOnScrollListener(listener: OnScrollListener) {
+        super.addOnScrollListener(listener)
+    }
+
     private fun initView() {
         setFadingEdgeLength(0)
+        // todo set scrolllistener
+        // public abstract static class OnScrollListener
     }
 }

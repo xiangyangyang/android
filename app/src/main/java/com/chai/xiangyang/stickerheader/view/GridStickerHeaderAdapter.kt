@@ -3,6 +3,7 @@ package com.chai.xiangyang.stickerheader.view
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup.LayoutParams
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
@@ -19,9 +20,10 @@ import com.chai.xiangyang.stickerheader.viewmodel.HeaderItemViewModel
 import com.chai.xiangyang.stickerheader.viewmodel.TopViewModel
 import java.util.*
 
+
+
 class GridStickerHeaderAdapter(private val mContext: Context, private val books: List<Int>) : RecyclerView.Adapter<GridStickerHeaderAdapter.ItemViewHolder>(), StickerHeaderRecyclerView.OnHeaderUpdateListener {
 
-    private lateinit var headerview: View
     private lateinit var itemList: List<ItemModel>
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         return when (viewType) {
@@ -59,7 +61,6 @@ class GridStickerHeaderAdapter(private val mContext: Context, private val books:
             ITEM_HEADER -> {
                 val headerItemViewBinding = holder.viewDataBinding as HeaderItemViewBinding
                 headerItemViewBinding.viewModel = HeaderItemViewModel(itemModel.groupTitle!!)
-                headerview = headerItemViewBinding.root
             }
             BOTTOM -> {
                 val bottomViewBinding = holder.viewDataBinding as BottomViewBinding
@@ -88,7 +89,10 @@ class GridStickerHeaderAdapter(private val mContext: Context, private val books:
     }
 
     override fun getStickyHeader():View {
-       return LayoutInflater.from(mContext).inflate(R.layout.header_item_view, null)
+       val headerView =  LayoutInflater.from(mContext).inflate(R.layout.header_item_view, null)
+        headerView.layoutParams = LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
+
+        return headerView
     }
 
     override fun updateStickyHeader(headerItemPosition: Int) {

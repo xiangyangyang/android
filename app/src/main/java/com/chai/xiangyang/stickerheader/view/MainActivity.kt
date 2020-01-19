@@ -36,6 +36,7 @@ class MainActivity : AppCompatActivity(){
 
         recyclerView.layoutManager=viewManager
         recyclerView.adapter = viewAdapter
+        recyclerView.setOnHeaderUpdateListener(viewAdapter)
 
 //        navController = findNavController(R.id.nav_host_fragment)
 //        setDrawer()
